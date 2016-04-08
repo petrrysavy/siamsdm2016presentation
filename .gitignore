@@ -157,3 +157,6 @@ pythontex-files-*/
 
 # Latexian
 TSWLatexianTemp*
+
+# ignore the final built
+presentation.pdf
