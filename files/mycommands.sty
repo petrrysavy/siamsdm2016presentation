@@ -1,0 +1,18 @@
+\RequirePackage{pifont}
+\RequirePackage{xcolor}
+
+\providecommand{\yesnoyescolor}{green}
+\providecommand{\yesnonocolor}{red}
+
+\newcommand{\itemization}[2]{{#1}_1, {#1}_2, \ldots, {#1}_{#2}}
+
+\newcommand{\sumion}{\sum_{i=1}^n}
+\providecommand{\Oh}{\mathop{\mathcal{O}}}
+\newcommand{\Rpz}{\mathbb{R}^+_0}
+\newcommand{\R}{\mathbb{R}}
+
+\AtEndPreamble{
+    \newcommand{\yes}{{\color{\yesnoyescolor} \checkmark}}
+    \newcommand{\no}{{\color{\yesnonocolor} \ding{55}}}
+}
+\endinput
