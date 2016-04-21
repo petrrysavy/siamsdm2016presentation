@@ -26,8 +26,8 @@
 \usepgfplotslibrary{dateplot}
 
 \title{Geometric Methods of Accelerating Triangle-inequality-based \texorpdfstring{$k$}{k}-means}
-\subtitle{Thesis presentation}
-\date{October 28, 2015}
+\subtitle{SIAM SDM 2016}
+\date{May 5, 2016}
 \author{Petr Ry\v{s}av\'{y} and Greg Hamerly}
 \institute{Baylor University}
 
@@ -82,13 +82,13 @@
 
 \section{Introduction}
 
-\begin{frame}{Clustering}
-  \begin{itemize}
-    \item Machine learning approach
-    \item Goal to find similar objects
-    \item $k$-means is one of the most popular approaches
-  \end{itemize}
-\end{frame}
+%\begin{frame}{Clustering}
+%  \begin{itemize}
+%    \item Machine learning approach
+%    \item Goal to find similar objects
+%    \item $k$-means is one of the most popular approaches
+%  \end{itemize}
+%\end{frame}
 
 \begin{frame}{\texorpdfstring{$k$}{k}-means}
   Input
@@ -105,9 +105,9 @@
   (function $\vec{c}$ returns the assigned centroid to the given argument)
 \end{frame}
 
-\begin{frame}
-  \input{files/clusters}
-\end{frame}
+%\begin{frame}
+%  \input{files/clusters}
+%\end{frame}
 
 \section{Algorithms overview}
 
@@ -166,27 +166,27 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{Heap algorithm}
-  \begin{itemize}
-    \item The upper bound and the lower bound are combined into a single bound $$\lux = \lx - \ux.$$
-    \item Points are put into $k$ heaps, one for each cluster.
-    \item Once a point has $\lux > 0$, all remaining points can be skipped.
-    \item All points in the cluster have the same lower/upper bound update.
-    \item Bounds stored relative to the center movement (no need to update key in each iteration).
-  \end{itemize}
-\end{frame}
+%\begin{frame}{Heap algorithm}
+%  \begin{itemize}
+%    \item The upper bound and the lower bound are combined into a single bound $$\lux = \lx - \ux.$$
+%    \item Points are put into $k$ heaps, one for each cluster.
+%    \item Once a point has $\lux > 0$, all remaining points can be skipped.
+%    \item All points in the cluster have the same lower/upper bound update.
+%    \item Bounds stored relative to the center movement (no need to update key in each iteration).
+%  \end{itemize}
+%\end{frame}
 
-\begin{frame}{Annular algorithm}
-  \begin{itemize}
-    \item Modification of Hamerly's algorithm.
-    \item Searches only centroids lying in an annulus centered at origin.
-  \end{itemize}
-  \begin{center}
-    \includegraphics[scale=1.2, page=32, trim=8.7cm 2.5cm 0.8cm 3.8cm, clip]{files/fast_kmeans_talk_20140515.pdf}
-    \newline
-    [Image taken from \url{http://cs.ecs.baylor.edu/~hamerly/software/fast\_kmeans\_talk\_20140515.pdf}, pg.32]  
-  \end{center}
-\end{frame}
+%\begin{frame}{Annular algorithm}
+%  \begin{itemize}
+%    \item Modification of Hamerly's algorithm.
+%    \item Searches only centroids lying in an annulus centered at origin.
+%  \end{itemize}
+%  \begin{center}
+%    \includegraphics[scale=1.2, page=32, trim=8.7cm 2.5cm 0.8cm 3.8cm, clip]{files/fast_kmeans_talk_20140515.pdf}
+%    \newline
+%    [Image taken from \url{http://cs.ecs.baylor.edu/~hamerly/software/fast\_kmeans\_talk\_20140515.pdf}, pg.32]  
+%  \end{center}
+%\end{frame}
 
 \plain{Proposed changes}
 
@@ -292,28 +292,28 @@ is a valid update of the lower bound $\lxcj$.
   \end{center}
 \end{frame}
 
-\begin{frame}{Projection}
-  \begin{align*}
-    \mathsf{c}_{ix} &= 2 \frac{\| \vec{P}(\ci) - \ci \| }{ \movcj },
-    \\
-    \mathsf{c}_{iy} &= 1-2t,
-    \\
-    r &= 2 \frac{\mci}{\movcj},
-  \end{align*}
-  where
-  \begin{equation*}
-    \vec{P}(\ci) = \cj + t \cdot (\cj' - \cj)= \cj + \frac{(\ci-\cj)^T(\cj' - \cj)}{\movcj^2} (\cj' - \cj)
-  \end{equation*}
-  is the projection of $\ci$ onto line through $\cj$ and $\cj'$.
-\end{frame}
+%\begin{frame}{Projection}
+%  \begin{align*}
+%    \mathsf{c}_{ix} &= 2 \frac{\| \vec{P}(\ci) - \ci \| }{ \movcj },
+%    \\
+%    \mathsf{c}_{iy} &= 1-2t,
+%    \\
+%    r &= 2 \frac{\mci}{\movcj},
+%  \end{align*}
+%  where
+%  \begin{equation*}
+%    \vec{P}(\ci) = \cj + t \cdot (\cj' - \cj)= \cj + \frac{(\ci-\cj)^T(\cj' - \cj)}{\movcj^2} (\cj' - \cj)
+%  \end{equation*}
+%  is the projection of $\ci$ onto line through $\cj$ and $\cj'$.
+%\end{frame}
 
-\begin{frame}{Application to various algorithms}
-  \begin{itemize}
-    \item Applicable directly to Elkan's algorithm.
-    \item Hamerly's and annular algorithm?
-    \item Heap algorithm?
-  \end{itemize}
-\end{frame}
+%\begin{frame}{Application to various algorithms}
+%  \begin{itemize}
+%    \item Applicable directly to Elkan's algorithm.
+%    \item Hamerly's and annular algorithm?
+%    \item Heap algorithm?
+%  \end{itemize}
+%\end{frame}
 
 \section{Cluster neighbors}
 
@@ -351,38 +351,38 @@ is a valid update of the lower bound $\lxcj$.
   \end{itemize}
 \end{frame}
 
-\section{Explicit upper bound for heap algorithm}
+%\section{Explicit upper bound for heap algorithm}
 
-\begin{frame}{Problems of heap algorithm}
-  \begin{itemize}
-    \item The heap algorithm cannot tighten the upper bound (left as open problem).
-    \item How do we evaluate the maximal upper bound $\mci$?
-  \end{itemize}
-\end{frame}
+%\begin{frame}{Problems of heap algorithm}
+%  \begin{itemize}
+%    \item The heap algorithm cannot tighten the upper bound (left as open problem).
+%    \item How do we evaluate the maximal upper bound $\mci$?
+%  \end{itemize}
+%\end{frame}
 
-\begin{frame}{Solution}
-  \begin{itemize}
-    \item[\no] Store the $\ux$ together with $\lux$
-    \begin{itemize}
-      \item Breaks the asymptotic complexity.
-    \end{itemize}
-    \item[\yes] Store the $\ux$ relative to the center movement.
-    \begin{itemize}
-      \item Follows the virtue of the heap algorithm.
-      \item To get the $\mci$ we need to put points in the heaps.
-    \end{itemize}
-  \end{itemize}
-\end{frame}
+%\begin{frame}{Solution}
+%  \begin{itemize}
+%    \item[\no] Store the $\ux$ together with $\lux$
+%    \begin{itemize}
+%      \item Breaks the asymptotic complexity.
+%    \end{itemize}
+%    \item[\yes] Store the $\ux$ relative to the center movement.
+%    \begin{itemize}
+%      \item Follows the virtue of the heap algorithm.
+%      \item To get the $\mci$ we need to put points in the heaps.
+%    \end{itemize}
+%  \end{itemize}
+%\end{frame}
 
-\section{Other changes}
-
-\begin{frame}{Other changes}
-  \begin{enumerate}
-    \item Tweaking the first iteration
-    \item Storing the bounds relative to the sum of updates for Elkan's algorithm
-    \item Using stronger condition for neighbors in Elkan's algorithm
-  \end{enumerate}
-\end{frame}
+%\section{Other changes}
+%
+%\begin{frame}{Other changes}
+%  \begin{enumerate}
+%    \item Tweaking the first iteration
+%    \item Storing the bounds relative to the sum of updates for Elkan's algorithm
+%    \item Using stronger condition for neighbors in Elkan's algorithm
+%  \end{enumerate}
+%\end{frame}
 
 \section{Experimental results}
 
@@ -481,42 +481,42 @@ AnnulusA     & \yes  &       &       &       &      \\
 \includegraphics[width=\textwidth]{files/distplot.pdf}
 \end{frame}
 
-\begin{frame}{Average lower bound update per bound}
-\begin{tikzpicture}[scale=1]
-\begin{axis}[ybar,
-    symbolic x coords={
-		Elkan, ElkanA, ElkanAB, ElkanABD, Hamerly, HamerlyA, HamerlyAB, HamerlyABE, HamerlyB, Heap, HeapA, HeapAC, HeapABC, Annulus, AnnulusA
-	},
-	xtick=data,
-	xticklabels={Elkan, ElkanA, ElkanAB, ElkanABD,
-		\strongplot{Hamerly}, \strongplot{HamerlyA}, \strongplot{HamerlyAB}, \strongplot{HamerlyABE}, \strongplot{HamerlyB},
-		Heap, HeapA, HeapAC, HeapABC,
-		\strongplot{Annulus}, \strongplot{AnnulusA}},
-    ymin=0,
-    x tick label style={rotate=45,anchor=east},
-    width=\plotwidth,
-    height=\plotheight,
-    bar width=1.5pt,
-    ylabel={Average lower bound update},
-    legend pos=north west,
-    legend style={font=\scriptsize}
-    ]
-%\addplot table [x={eang}, y expr={\thisrowno{2}/\thisrow{1}/\thisrowno{3}/3933.9249}] {\updatestable};
-\addplot table [x={eang}, y expr={\thisrow{birch}/\thisrow{bnd}/3.62994e10}] {\updatestable};
-\addplot table [x={eang}, y expr={\thisrow{mnist50}/\thisrow{bounds}/1.06419e+09}] {\updatestable};
-\addplot table [x={eang}, y expr={\thisrow{clusters5}/\thisrow{bounds}/1.15264e+06}] {\updatestable};
-\addplot table [x={eang}, y expr={\thisrow{u2}/\thisrow{bounds}/340940}] {\updatestable};
-\legend{BIRCH, MNIST-50, Clustered $d=5$, Uniform $d=2$}
-\end{axis}
-\end{tikzpicture}
-\end{frame}
+%\begin{frame}{Average lower bound update per bound}
+%\begin{tikzpicture}[scale=1]
+%\begin{axis}[ybar,
+%    symbolic x coords={
+%		Elkan, ElkanA, ElkanAB, ElkanABD, Hamerly, HamerlyA, HamerlyAB, HamerlyABE, HamerlyB, Heap, HeapA, HeapAC, HeapABC, Annulus, AnnulusA
+%	},
+%	xtick=data,
+%	xticklabels={Elkan, ElkanA, ElkanAB, ElkanABD,
+%		\strongplot{Hamerly}, \strongplot{HamerlyA}, \strongplot{HamerlyAB}, \strongplot{HamerlyABE}, \strongplot{HamerlyB},
+%		Heap, HeapA, HeapAC, HeapABC,
+%		\strongplot{Annulus}, \strongplot{AnnulusA}},
+%    ymin=0,
+%    x tick label style={rotate=45,anchor=east},
+%    width=\plotwidth,
+%    height=\plotheight,
+%    bar width=1.5pt,
+%    ylabel={Average lower bound update},
+%    legend pos=north west,
+%    legend style={font=\scriptsize}
+%    ]
+%%\addplot table [x={eang}, y expr={\thisrowno{2}/\thisrow{1}/\thisrowno{3}/3933.9249}] {\updatestable};
+%\addplot table [x={eang}, y expr={\thisrow{birch}/\thisrow{bnd}/3.62994e10}] {\updatestable};
+%\addplot table [x={eang}, y expr={\thisrow{mnist50}/\thisrow{bounds}/1.06419e+09}] {\updatestable};
+%\addplot table [x={eang}, y expr={\thisrow{clusters5}/\thisrow{bounds}/1.15264e+06}] {\updatestable};
+%\addplot table [x={eang}, y expr={\thisrow{u2}/\thisrow{bounds}/340940}] {\updatestable};
+%\legend{BIRCH, MNIST-50, Clustered $d=5$, Uniform $d=2$}
+%\end{axis}
+%\end{tikzpicture}
+%\end{frame}
 
-\begin{frame}{Memory usage}
-  \begin{itemize}
-    \item Array for $\ux$ in heap algorithm requires $\Oh(n)$.
-    \item All other changes are in $\Oh(k^2+kd)$.
-  \end{itemize}
-\end{frame}
+%\begin{frame}{Memory usage}
+%  \begin{itemize}
+%    \item Array for $\ux$ in heap algorithm requires $\Oh(n)$.
+%    \item All other changes are in $\Oh(k^2+kd)$.
+%  \end{itemize}
+%\end{frame}
 
 \section{Conclusion and summary}
 
@@ -530,8 +530,7 @@ AnnulusA     & \yes  &       &       &       &      \\
 \end{frame}
 
 \section*{Questions}
-\plain{Time for questions.}
-\plain{Thank you for your attention.}
+\plain{Time for questions. \\ Thank you for your attention.}
 
 \begin{frame}
 	\small
