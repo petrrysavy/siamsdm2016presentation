@@ -29,7 +29,7 @@
 \subtitle{SIAM SDM 2016}
 \date{May 5, 2016}
 \author{Petr Ry\v{s}av\'{y} and Greg Hamerly}
-\institute{Baylor University}
+\institute{Baylor University, Waco, TX, USA}
 
 \newcommand{\x}{\vec{x}}
 \newcommand{\xxi}{\vec{x}_i}
@@ -197,8 +197,11 @@
     \item We assume the worst case while we update the upper/lower bounds.
     \item Points in cluster are not everywhere in space.
     \item Points in cluster fulfill some locality.
-    \item When a centroid move away, the lower bound does not have to shrink.
+    \item When a centroid moves away, the lower bound does not have to shrink.
   \end{itemize}
+  \begin{center}
+    \input{img/lxupdate.pgf}
+  \end{center}
 \end{frame}
 
 \begin{frame}{How to describe the locality of a cluster?}
@@ -323,7 +326,7 @@ is a valid update of the lower bound $\lxcj$.
     \item What if we knew what was the second closest centroid?
   \end{itemize}
   \begin{definition}
-    The \emph{neighbor} of a centroid $\ci$ is any centroid $\cj$
+    A \emph{neighbor} of a centroid $\ci$ is any centroid $\cj$
     that is closest or second closest to any point assigned to $\ci$.
   \end{definition}
 \end{frame}
@@ -339,10 +342,8 @@ is a valid update of the lower bound $\lxcj$.
   \begin{equation}
     \sci = \frac{1}{2} \min_{j \in \{1,2, \ldots, i-1, i+1, \ldots, k\}} \| \cj - \ci \|.
   \end{equation}
-\end{frame}
-
-\begin{frame}{Why?}
-  \begin{itemize}
+  
+    \begin{itemize}
     \item If the condition is violated, we know that for $\x$ assigned to $\ci$:
     \begin{itemize}
       \item $\ci$ is closer to $\x$ than $\cj$ and
@@ -350,6 +351,16 @@ is a valid update of the lower bound $\lxcj$.
     \end{itemize}
   \end{itemize}
 \end{frame}
+
+%\begin{frame}{Why?}
+%  \begin{itemize}
+%    \item If the condition is violated, we know that for $\x$ assigned to $\ci$:
+%    \begin{itemize}
+%      \item $\ci$ is closer to $\x$ than $\cj$ and
+%      \item the closest other centroid to $\ci$ is closer to $\x$ than $\cj$.
+%    \end{itemize}
+%  \end{itemize}
+%\end{frame}
 
 %\section{Explicit upper bound for heap algorithm}
 
@@ -388,9 +399,10 @@ is a valid update of the lower bound $\lxcj$.
 
 \begin{frame}{Experimental results}
   \begin{itemize}
+    \item C++ code
     \item Same conditions, same initialization.
     \item Runtime averaged over $10$ repeats.
-    \item Sources: \url{https://github.com/petrrysavy/baylorml} (based on code by G. Hamerly and J. Drake)
+    \item Sources: \url{https://github.com/petrrysavy/baylorml} [branches \texttt{multithreaded} and \texttt{modified\_update}] (based on code by G. Hamerly and J. Drake)
   \end{itemize}
 \end{frame}
 
