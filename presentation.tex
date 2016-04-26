@@ -158,7 +158,7 @@
 \begin{frame}{Hamerly's algorithm}
   \begin{itemize}
     \item One \emph{upper bound} $u(\vec{x})$.
-    \item One \emph{lower bound} $l(\vec{x})$ that stands for a lower bound on the distance
+    \item One \emph{lower bound} $l(\vec{x})$ on distance
       between the point $\vec{x}$ and its second closest centroid.
   \end{itemize}
   \begin{center}
@@ -211,7 +211,7 @@
     \item Any point is in distance $\ux$ from its closest centroid.
     \item Therefore each point is at most
       \begin{equation*}
-         \mci = \max_{\vec{y} \mid \vec{c}(\vec{y}) = \ci} u(\vec{y}).
+         \mci = \max_{\vec{x} \mid \vec{c}(\vec{x}) = \ci} u(\vec{x}).
       \end{equation*}
       from its closest centroid $\ci$.
   \end{itemize}
@@ -226,7 +226,7 @@
        \begin{equation*}
          \deltaxcj \geq \distxcj - \distxcjp
        \end{equation*}
-     \item The update is at least the difference between the old and new distance.
+     \item The update is at least the difference between the old and the new distance.
      \item Denote $\distxcj - \distxcjp = f(\x)$.
   \end{itemize}
 \end{frame}
@@ -247,7 +247,7 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{There is somewhere point $\x$ ...}
+\begin{frame}{There is somewhere point $\x$ \ldots}
   \begin{center}
     \input{files/situation-simple3.pgf}
   \end{center}
