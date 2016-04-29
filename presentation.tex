@@ -125,8 +125,8 @@
 
 \begin{frame}{Triangle-inequality-based \texorpdfstring{$k$}{k}-means}
   \begin{itemize}
-    \item Lloyd's algorithm does many redundant distance calculations
-    \item Solution is a set of upper and lower bounds.
+    \item Problem: Lloyd's algorithm does many redundant distance calculations.
+    \item Solution: careful use of a set of upper and lower bounds.
   \end{itemize}
   \begin{theorem}[Triangle inequality] \label{thm:triange}
     For any vectors $\vec{x}$ and $\vec{y}$ holds
@@ -158,7 +158,7 @@
 \begin{frame}{Hamerly's algorithm}
   \begin{itemize}
     \item One \emph{upper bound} $u(\vec{x})$.
-    \item One \emph{lower bound} $l(\vec{x})$ on distance
+    \item {\color{red} One} \emph{lower bound} $l(\vec{x})$ on distance
       between the point $\vec{x}$ and its second closest centroid.
   \end{itemize}
   \begin{center}
@@ -194,7 +194,7 @@
 
 \begin{frame}{Motivation}
   \begin{itemize}
-    \item We assume the worst case while we update the upper/lower bounds.
+    \item Existing algorithms assume worst cases to update upper/lower bounds.
     \item Points in cluster are not everywhere in space.
     \item Points in cluster fulfill some locality.
     \item When a centroid moves away, the lower bound does not have to shrink.
@@ -247,13 +247,13 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{There is somewhere point $\x$ \ldots}
+\begin{frame}{Point $\x$ is somewhere\ldots}
   \begin{center}
     \input{files/situation-simple3.pgf}
   \end{center}
 \end{frame}
 
-\begin{frame}{\ldots actually somewhere in the cluster}
+\begin{frame}{\ldots actually, it's in its cluster}
   \begin{center}
     \input{files/situation-simple4.pgf}
   \end{center}
@@ -418,14 +418,17 @@ is a valid update of the lower bound $\lxcj$.
 \hline
 Name & Description & Points $n$ & Dimension $d$ & $k$ \\
 \hline
-Uniform-$d$ & Synthetic data from uniform distribution & $1 \, 000 \, 000$ & 2/3/5/7/10/15 & 50 \\
-Clustered-$d$ & Synthetic data, 50 clusters & $1 \, 000 \, 000$ & 2/3/5/7/10/15 & 50 \\
-\href{http://cs.joensuu.fi/sipu/datasets/}{BIRCH} & Synthetic grid $10\times 10$ Gaussian clusters & $100 \, 000$ & $2$ & $100$ \\
-\href{https://archive.ics.uci.edu/ml/datasets/Covertype}{Covertype} & Forest CoverType dataset & $581 \, 012$ & 54 & 8 \\
+Uniform-$d$ * & Uniform distribution & $1 \, 000 \, 000$ & 2 to 15 & 50 \\
+Clustered-$d$ * & 50 clusters & $1 \, 000 \, 000$ & 2 to 15 & 50 \\
+\href{http://cs.joensuu.fi/sipu/datasets/}{BIRCH} * & Grid of $10\times 10$ Gaussians & $100 \, 000$ & $2$ & $100$ \\
+\hline
+\href{https://archive.ics.uci.edu/ml/datasets/Covertype}{Covertype} & Forest CoverType & $581 \, 012$ & 54 & 8 \\
 \href{http://yann.lecun.com/exdb/mnist/}{MNIST-784} & Handwritten digit images $28\times 28\,\mathrm{px}$ & $60 \, 000$ & $784$ & $10$ \\
 MNIST-50 & Random linear projection of MNIST-784 & $60 \, 000$ & $50$ & $10$ \\
 \hline
 \end{tabularx}
+
+* Synthetic dataset
 \end{frame}
 
 \begin{frame}{Algorithms}
@@ -539,14 +542,14 @@ AnnulusA     & \yes  &       &       &       &      \\
 \begin{frame}
   \begin{itemize}
     \item Changes require operations per iteration and pair of centroids.
-    \item Low risk of slowing down the algorithm while good chances of improving the runtime.
-    \item Changes work better in lower dimension and when data are clustered.
+    \item Low overhead: a very good chance of improving runtime.
+    \item Bigger improvements in lower dimension and when data are clustered.
     \item The algorithms do not spend the most of their time by distance calculations.
   \end{itemize}
 \end{frame}
 
 \section*{Questions}
-\plain{Time for questions. \\ Thank you for your attention.}
+\plain{Thanks for your attention. \\ Time for questions!}
 
 \begin{frame}
 	\small
