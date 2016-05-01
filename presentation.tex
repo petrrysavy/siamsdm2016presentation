@@ -100,18 +100,17 @@
 %\end{frame}
 
 \begin{frame}{\texorpdfstring{$k$}{k}-means}
-  Input
+  Inputs:
   \begin{itemize}
-    \item A set of points $\left\{ \itemization{\vec{x}}{n} \right\}$.
-    \item Number of centroids $k$.
+    \item $n$ points $\left\{ \itemization{\vec{x}}{n} \right\}$.
+    \item Number of \emph{centroids} $k$.
   \end{itemize}
-  Goal is to find to find a set of $k$ points $\left\{ \itemization{\vec{c}}{k} \right\}$, named \emph{centroids},
-  that minimize the \emph{distortion function}
+  Goal: find a set of $k$ points $\left\{ \itemization{\vec{c}}{k} \right\}$
+  to minimize the \emph{distortion function}
   \begin{equation*}
-    J(\itemization{\vec{c}}{k}, \vec{c}) = \sumion \left\| \vec{x}_i - \vec{c}(\vec{x}_i) \right\|^2.
+    J(\itemization{\vec{c}}{k}) = \sumion \min_{1\leq j \leq k} \left\| \vec{x}_i - \cj \right\|^2.
     \label{eq:distortion}
   \end{equation*}
-  (function $\vec{c}$ returns the assigned centroid to the given argument)
 \end{frame}
 
 %\begin{frame}
@@ -122,10 +121,10 @@
 
 \begin{frame}{Lloyd's algorithm}
   \begin{itemize}
-     \item Iteratively repeat two steps
+     \item Repeat until convergence
      \begin{enumerate}
-       \item Assign each point to its closest centroid
-       \item Move centroids to the cluster means
+       \item \emph{Assign} each point to its closest centroid
+       \item \emph{Move} centroids to the cluster means
      \end{enumerate}
   \end{itemize}
 \end{frame}
@@ -155,7 +154,7 @@
 
 \begin{frame}{Elkan's algorithm}
   \begin{itemize}
-    \item One \emph{upper bound} $\ux$ on the distance to the closest centroid.
+    \item One \emph{upper bound} $\ux$ on the distance to the assigned centroid.
     \item $k$ \emph{lower bounds} $\lxcj$ on the distances between the
       point $\x$ and each centroid.
   \end{itemize}
@@ -335,29 +334,27 @@ is a valid update of the lower bound $\lxcj$.
 
 \begin{frame}{Neighbor}
   \begin{itemize}
-    \item In Hamerly's algorithm we need to know the distance to the second closest neighbor in the innermost loop.
-    \item What if we knew what was the second closest centroid?
+    \item In Hamerly's algorithm we need to know the distances to the closest and second closest centroid in the innermost loop.
+    \item If we know which are the two closest centroids, no other distances need to be calculated.
   \end{itemize}
   \begin{definition}
-    A \emph{neighbor} of a centroid $\ci$ is any centroid $\cj$
-    that is closest or second closest to any point assigned to $\ci$.
+    Centroid $\cj$ is a \emph{neighbor} of $\ci$
+    if it is one of the two closest for any point assigned to $\ci$.
   \end{definition}
 \end{frame}
 
 \begin{frame}{How to find out which centroids are neighbors}
   \begin{theorem}
-    Any neighbor $\cj$ of a centroid $\ci$ must fulfill the condition
+    Any neighbor $\cj$ of a centroid $\ci$ must fulfill
     \begin{equation}
-      m(\ci) + s(\ci) \geq \frac{1}{2} \| \ci - \cj \|.
+      m(\ci) + s(\ci) \geq \frac{1}{2} \| \ci - \cj \|,
+      \label{eq:neighborcond}
     \end{equation}
+    where $\sci$ is the distance from $\ci$ to its closest centroid.
   \end{theorem}
-  $\sci$ is the distance from $\ci$ to closest other centroid, i.e.
-  \begin{equation}
-    \sci = \frac{1}{2} \min_{j \in \{1,2, \ldots, i-1, i+1, \ldots, k\}} \| \cj - \ci \|.
-  \end{equation}
   
     \begin{itemize}
-    \item If the condition is violated, we know that for $\x$ assigned to $\ci$:
+    \item If \eqref{eq:neighborcond} is violated, we know that for $\x$ assigned to $\ci$:
     \begin{itemize}
       \item $\ci$ is closer to $\x$ than $\cj$ and
       \item the closest other centroid to $\ci$ is closer to $\x$ than $\cj$.
@@ -548,7 +545,7 @@ AnnulusA     & \yes  &       &       &       &      \\
 
 \section{Conclusion and summary}
 
-\begin{frame}
+\begin{frame}{Summary}
   \begin{itemize}
     \item Changes require operations per iteration and pair of centroids.
     \item Low overhead: a very good chance of improving runtime.
