@@ -29,7 +29,16 @@
 \subtitle{SIAM SDM 2016}
 \date{May 5, 2016}
 \author{Petr Ry\v{s}av\'{y} and Greg Hamerly}
-\institute{Baylor University, Waco, TX, USA}
+\institute{Baylor University, Waco, TX, USA\\ \\ \includegraphics[scale=0.4]{Baylor_University_mark.pdf}}
+
+\usepackage{textpos}
+\addtobeamertemplate{frametitle}{}{%
+\begin{textblock*}{2cm}(0.75\paperwidth,-1.76cm)
+\includegraphics[width=2cm]{Baylor_University_mark.pdf}
+\end{textblock*}}
+%\logo{% \\
+%  \\\makebox[0.95\paperwidth]{\includegraphics[scale=0.1]{Baylor_University_mark.pdf} \hfill}
+%}
 
 \newcommand{\x}{\vec{x}}
 \newcommand{\xxi}{\vec{x}_i}
